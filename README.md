@@ -27,15 +27,6 @@
 
    This is the initial data structure for a vet clinic. Constitutes a table to store animals' information, insert some data into it, and query it.
 
-
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
 <details>
   <summary>Server</summary>
   <ul>
