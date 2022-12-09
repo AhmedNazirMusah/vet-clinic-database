@@ -11,3 +11,30 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) 
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Boarmon', '06/07/2005', 7, true, 20.4);
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Blossom', '10/13/1998', 3, true, 17);
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Ditto', '05/14/2022', 4, true, 22);
+
+-- Inserting data into the owners table
+
+INSERT INTO owners(full_name, age) VALUES('Sam Smith', 34);
+INSERT INTO owners(full_name, age) VALUES('Jennifer Orwell', 19);
+INSERT INTO owners(full_name, age) VALUES('Bob', 45);
+INSERT INTO owners(full_name, age) VALUES('Melody Pond', 77);
+INSERT INTO owners(full_name, age) VALUES('Dean Winchester', 14);
+INSERT INTO owners(full_name, age) VALUES('Jodie Whittaker', 38);
+
+
+-- Inserting data into species table
+INSERT INTO species(name) VALUES('Pokemon');
+INSERT INTO species(name) VALUES('Digimon');
+
+--Modifying inserted animals so it includes the species_id value
+
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Digimon') WHERE name LIKE '%mon';
+UPDATE animals SET species_id = (SELECT id FROM species WHERE name = 'Pokemon') WHERE species_id IS NULL;
+
+-- Modifying inserted animals to include owner information (owner_id)
+
+UPDATE animals SET owners_id = (SELECT id from owners WHERE full_name = 'Sam Smith') WHERE name = 'Agumon';
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell') WHERE name IN ('Gabumon', 'Pikachu');
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Bob') WHERE name IN ('Devimon', 'Plantmon');
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond') WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+UPDATE animals SET owners_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester') WHERE name IN ('Angemon', 'Boarmon');
