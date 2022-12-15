@@ -27,6 +27,10 @@
 
    This is the initial data structure for a vet clinic. Constitutes a table to store animals' information, insert some data into it, and query it.
 
+# Schema diagram
+
+<img src="img.png" alt="logo" width="100%"  height="auto" />
+
 <details>
   <summary>Server</summary>
   <ul>
